@@ -1,0 +1,37 @@
+{
+  "name": "@brainergybyleo/byte-me",
+  "version": "1.0.2",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node ./postinstall.js"
+  },
+  "bin": {
+    "byte-me": "./cli.js"
+  },
+  "keywords": [
+    "cli",
+    "developer",
+    "fun",
+    "terminal",
+    "nodejs",
+    "jokes",
+    "motivation"
+  ],
+  "author": "Leonard Oba <leonard6oba@gmail.com>",
+  "license": "MIT",
+  "description": "A fun CLI that surprises developers with random geeky messages, coding jokes, and motivational messages in the terminal!",
+  "dependencies": {
+    "boxen": "^8.0.1",
+    "chalk": "^5.6.0",
+    "chalk-animation": "^2.0.3",
+    "commander": "^14.0.0",
+    "figlet": "^1.8.2",
+    "gradient-string": "^3.0.0",
+    "node-cron": "^4.2.1",
+    "node-notifier": "^10.0.1",
+    "npmlog": "^7.0.1",
+    "concurrently": "^8.2.0"
+  }
+}
