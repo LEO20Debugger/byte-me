@@ -2,13 +2,13 @@
   "name": "@brainergybyleo/byte-me",
   "version": "1.0.2",
   "type": "module",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node ./postinstall.js"
+    "postinstall": "node ./src/postinstall.js"
   },
   "bin": {
-    "byte-me": "./cli.js"
+    "byte-me": "./src/bin/cli.js"
   },
   "keywords": [
     "cli",
