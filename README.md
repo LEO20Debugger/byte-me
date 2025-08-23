@@ -21,11 +21,17 @@ It also gives playful **error hints** when things go wrong. Perfect for keeping 
 ```bash
 npm install -g @brainergybyleo/byte-me
 
-# Run byte-me normally
+# Show fun message instantly
 byte-me
 
-# Run with options
-byte-me --test --rainbow --once
+# Run in test mode (every 5 seconds)
+byte-me --test
+
+# Enable rainbow animated messages
+byte-me --rainbow
+
+# Show one message and exit
+byte-me --once
 
 
 ## Support / Contact ✉️
