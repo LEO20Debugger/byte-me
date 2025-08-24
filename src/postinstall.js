@@ -1,3 +1,4 @@
 #!/usr/bin/env node
-console.log("\n🚀 Byte Me installed successfully!");
-console.log("✨ Run `byte-me` to see something cool.");
+
+process.stdout.write("\n🚀 Byte Me installed successfully!\n");
+process.stdout.write("✨ Run `byte-me` to see something cool.\n\n");
