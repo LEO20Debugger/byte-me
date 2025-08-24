@@ -1,14 +1,20 @@
 {
   "name": "@brainergybyleo/byte-me",
-  "version": "1.0.2",
+  "version": "1.0.7",
   "type": "module",
-  "main": "./src/index.js",
+  "main": "./dist/esm/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js"
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c && copy src\\bin\\cli.js dist\\cli.js",
     "postinstall": "node ./src/postinstall.js"
   },
   "bin": {
-    "byte-me": "./src/bin/cli.js"
+    "byte-me": "dist/cli.js"
   },
   "keywords": [
     "cli",
@@ -27,11 +33,16 @@
     "chalk": "^5.6.0",
     "chalk-animation": "^2.0.3",
     "commander": "^14.0.0",
+    "concurrently": "^8.2.0",
     "figlet": "^1.8.2",
     "gradient-string": "^3.0.0",
     "node-cron": "^4.2.1",
     "node-notifier": "^10.0.1",
-    "npmlog": "^7.0.1",
-    "concurrently": "^8.2.0"
+    "npmlog": "^7.0.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "rollup": "^4.48.0",
+    "rollup-plugin-copy": "^3.5.0"
   }
 }
