@@ -1,15 +1,27 @@
 import cron from "node-cron";
 import chalk from "chalk";
 import { rainbow, pastel } from "gradient-string";
+import figlet from "figlet";
 import { readFileSync, writeFileSync, existsSync } from "fs";
+import { join } from "path";
+import { cwd } from "process";
 import { fileURLToPath } from "url";
-import { dirname, join } from "path";
-import { homedir } from "os";
 
-// --- Resolve package paths safely ---
+// --- ESM __dirname equivalent ---
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = join(__filename, "..");
+
+// --- Paths ---
 const messagesPath = join(__dirname, "../json/messages.json");
+const configPath = join(cwd(), ".byteme.json");
+const statePath = join(cwd(), ".byteme-state.json");
+
+// --- Default config ---
+const defaults = {
+  theme: "pastel", // rainbow, pastel, or plain
+  showBanner: true,
+  dailyTip: false,
+};
 
 // --- Load messages ---
 let messages = {};
@@ -22,29 +34,11 @@ try {
   );
 }
 
-// --- Colors ---
+// --- Colors for plain mode ---
 const colors = ["yellow", "blue", "magenta", "cyan", "whiteBright"];
 
-// --- Config and state ---
-const configPath = join(homedir(), ".byteme.json");
-const defaults = { theme: "pastel", showBanner: true, dailyTip: false };
-
-export function loadConfig() {
-  if (!existsSync(configPath)) {
-    saveConfig(defaults, true);
-    return defaults;
-  }
-  try {
-    const userConfig = JSON.parse(readFileSync(configPath, "utf-8"));
-    return { ...defaults, ...userConfig };
-  } catch {
-    console.warn("⚠️ Config corrupted, resetting to defaults.");
-    saveConfig(defaults, true);
-    return defaults;
-  }
-}
-
-export function saveConfig(newConfig, silent = false) {
+// --- Config functions ---
+export function saveConfig(newConfig = {}, silent = false) {
   const finalConfig = { ...defaults, ...newConfig };
   try {
     writeFileSync(configPath, JSON.stringify(finalConfig, null, 2));
@@ -54,22 +48,36 @@ export function saveConfig(newConfig, silent = false) {
   }
 }
 
+export function loadConfig() {
+  if (!existsSync(configPath)) {
+    saveConfig({}, true);
+    return defaults;
+  }
+  try {
+    const userConfig = JSON.parse(readFileSync(configPath, "utf-8"));
+    return { ...defaults, ...userConfig };
+  } catch (err) {
+    console.warn("⚠️ Config is corrupted. Resetting to defaults.", err.message);
+    saveConfig({}, true);
+    return defaults;
+  }
+}
+
 // --- State for daily tips ---
-const statePath = join(homedir(), ".byteme-state.json");
 function loadState() {
   if (!existsSync(statePath)) return {};
   return JSON.parse(readFileSync(statePath, "utf-8"));
 }
+
 function saveState(state) {
   writeFileSync(statePath, JSON.stringify(state, null, 2));
 }
 
-// --- Time category helper ---
+// --- Time category ---
 function getTimeCategory() {
   const now = new Date();
   const hour = now.getHours();
   const day = now.getDay();
-
   if (day === 0 || day === 6) return "weekend";
   if (hour >= 5 && hour < 12) return "morning";
   if (hour >= 18 || hour < 5) return "night";
@@ -79,15 +87,11 @@ function getTimeCategory() {
 // --- Random message ---
 export function getRandomMessage({ error = false } = {}) {
   let pool = messages[getTimeCategory()] || messages.general || [];
-
   if (!error && Math.random() < 0.2) pool = messages.inspiration || pool;
   if (!error && Math.random() < 0.2) pool = messages.jokes || pool;
   if (error && messages.errors) pool = messages.errors;
-
   if (!pool.length) return "Hello! Your message pool is empty.";
-
-  const index = Math.floor(Math.random() * pool.length);
-  return pool[index];
+  return pool[Math.floor(Math.random() * pool.length)];
 }
 
 // --- Error handling ---
@@ -105,7 +109,6 @@ export function showDailyTip() {
 
   const today = new Date().toISOString().split("T")[0];
   const state = loadState();
-
   if (state.lastTipDate === today) return;
 
   const tips = messages.tips || [];
@@ -117,25 +120,50 @@ export function showDailyTip() {
   saveState({ lastTipDate: today });
 }
 
+// --- Banner generator ---
+function getBannerText(text = "BYTE-ME!") {
+  return figlet.textSync(text, {
+    font: "Standard",
+    horizontalLayout: "default",
+    verticalLayout: "default",
+  });
+}
+
 // --- Main scheduler ---
 export function scheduleFun({
   cronTime = "0 */30 * * * *",
-  rainbow: useRainbow = false,
+  rainbow: forceRainbow = false,
   once = false,
 } = {}) {
   if (typeof cronTime !== "string")
     throw new TypeError("cronTime must be a string");
 
-  console.log(chalk.blue.bold("🚀 byte-me started!\n"));
+  const config = loadConfig();
 
-  // Show daily tip at start
+  // --- Show Banner ---
+  if (config.showBanner) {
+    const bannerText = getBannerText("BYTE-ME!");
+    if (config.theme === "rainbow") console.log(rainbow(bannerText));
+    else if (config.theme === "pastel") console.log(pastel(bannerText));
+    else {
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      console.log(chalk[color].bold(bannerText));
+    }
+  }
+
   showDailyTip();
 
   const showMessage = () => {
     const msg = getRandomMessage();
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    let output = chalk[color](msg);
-    if (useRainbow) output = rainbow(msg);
+    let output;
+
+    if (forceRainbow || config.theme === "rainbow") output = rainbow(msg);
+    else if (config.theme === "pastel") output = pastel(msg);
+    else {
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      output = chalk[color](msg);
+    }
+
     console.log(chalk.green.bold("[byte-me]"), output);
 
     if (once) process.exit(0);
@@ -147,13 +175,18 @@ export function scheduleFun({
 
 // --- Default export ---
 function byteMe(options = {}) {
+  loadConfig();
   scheduleFun(options);
 
-  // Global error handlers
   process.on("uncaughtException", showErrorHint);
   process.on("unhandledRejection", showErrorHint);
   process.on("warning", showErrorHint);
 }
 
-// Attach getRandomMessage for CLI or easter egg usage
-export default Object.assign(byteMe, { getRandomMessage });
+export default Object.assign(byteMe, {
+  getRandomMessage,
+  loadConfig,
+  saveConfig,
+  showDailyTip,
+  scheduleFun,
+});
