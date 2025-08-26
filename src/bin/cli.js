@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { Command } from "commander";
 import gradient, { pastel, rainbow as rainbowGradient } from "gradient-string";
-import byteMe from "../index.js";
+import byteMe from "@brainergybyleo/byte-me";
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { homedir } from "os";
 import { join } from "path";
@@ -73,7 +73,7 @@ program
   .action(() => {
     if (defaults.showBanner) {
       import("figlet").then(({ default: figlet }) => {
-        figlet("Byte Me!", (err, data) => {
+        figlet("BYTE-ME!", (err, data) => {
           if (!err && data) {
             const theme = getGradient(defaults.theme);
             console.log(theme.multiline(data));
