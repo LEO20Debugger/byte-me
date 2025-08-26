@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 import { Command } from "commander";
-import gradient, { pastel, rainbow as rainbowGradient } from "gradient-string";
-import byteMe from "../index.js";
+import { pastel, rainbow as rainbowGradient } from "gradient-string";
+import byteMe from "@brainergybyleo/byte-me";
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { homedir } from "os";
 import { join } from "path";
+import { runFakeHackGame } from "./easterEgg.js";
+import { runDungeon } from "./dungeon.js";
+import { asciiAdventure10, rpsGame } from "./game.js";
 
 // --- Config path ---
 const configPath = join(homedir(), ".byteme.json");
@@ -73,7 +76,7 @@ program
   .action(() => {
     if (defaults.showBanner) {
       import("figlet").then(({ default: figlet }) => {
-        figlet("Byte Me!", (err, data) => {
+        figlet("BYTE-ME!", (err, data) => {
           if (!err && data) {
             const theme = getGradient(defaults.theme);
             console.log(theme.multiline(data));
@@ -85,6 +88,29 @@ program
       console.log("\n🚀 " + byteMe.getRandomMessage());
     }
   });
+
+program
+  .command("dungeon")
+  .description("Enter the ASCII dungeon adventure 🏰")
+  .action(() => runDungeon());
+
+program
+  .command("hack")
+  .description("Run a secret hack & mini-game 🕹️")
+  .action(() => {
+    runFakeHackGame();
+  });
+
+// --- ASCII Adventure game ---
+program
+  .command("adventure")
+  .description("Start the 10-Level ASCII Adventure 🌲")
+  .action(() => asciiAdventure10());
+
+program
+  .command("rps")
+  .description("Play Rock-Paper-Scissors 🎮")
+  .action(() => rpsGame());
 
 // --- Root action: runs when no command is given ---
 program.action(() => {

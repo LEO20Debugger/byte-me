@@ -62,7 +62,32 @@
   "💡 Ctrl+A jumps to start of line, Ctrl+E jumps to end of line in most terminals.",
   "⚙️ In bash/zsh, add `set -o vi` or `set -o emacs` for command-line editing modes.",
   "🤯 Use `!!` to repeat the last command, and `!git` to repeat the last git command.",
-  "🪄 Easter egg: Run `curl wttr.in` to get the weather forecast in your terminal."
+  "🪄 Easter egg: Run `curl wttr.in` to get the weather forecast in your terminal.",
+  "💡 Pro tip: npm explore <package> lets you peek inside installed packages.",
+  "🎯 Use git cherry-pick to grab only the commits you want.",
+  "⚡ Quick hack: ctrl + l clears your terminal instantly.",
+  "🔍 Use grep -r 'functionName' . to find functions fast.",
+  "🧰 Combine commands with && to save keystrokes.",
+  "💡 Tip: Use git bisect to find that pesky bug faster than a detective 🕵️‍♂️",
+  "🚀 Did you know? npx create-react-app is just a fancy shortcut for starting projects ⚡",
+  "🔧 Shortcut: Use Ctrl+Shift+T in most terminals to reopen a closed tab",
+  "📦 Use npm prune to remove extraneous packages and keep your project clean",
+  "⚡ Quick trick: node -v and npm -v show your current Node.js and npm versions",
+  "🧹 Clean old logs with rm -rf logs/* — but use with caution! ⚠️",
+  "💡 Alias your favorite commands in .bashrc or .zshrc for speed",
+  "🔍 Tip: grep -i 'error' *.log helps you find errors faster in logs",
+  "🤓 Remember: git reset --soft HEAD~1 is a gentle way to undo last commit",
+  "📚 Pro tip: Keep a .gitignore updated to avoid committing node_modules or secrets",
+  "⌛ Use watch -n 1 <command> to monitor changes in real-time",
+  "💻 Split your terminal with tmux or VSCode for multitasking like a pro",
+  "🚨 npm audit fix can automatically patch known vulnerabilities",
+  "🪄 Fun trick: curl -s 'https://api.quotable.io/random' to get a random coding quote",
+  "⚙️ Customize your shell prompt to display git branch and status automatically",
+  "🔧 Pro tip: npm link lets you test local packages before publishing",
+  "💡 Use node --inspect for debugging Node.js apps in Chrome DevTools",
+  "🔍 Tip: tree -L 2 shows your project structure without overwhelming detail",
+  "🛠️ Run npx npm-check -u to interactively update outdated packages",
+  "⚡ Shortcut: Press Ctrl+R to search your command history efficiently"
 ],
 
   "jokes": [
@@ -123,7 +148,12 @@
     "Keep learning, keep shipping, keep shining 🌟",
     "Be the coder you would hire 💼",
     "Turn coffee into features ☕➡️✨",
-    "Build what excites you, not what others expect 🚀"
+    "Build what excites you, not what others expect 🚀",
+    "Code is like a canvas; creativity matters as much as syntax 🎨",
+    "Small steps in code lead to giant leaps in projects 🚀",
+    "Dream in code, ship in reality 🌟",
+    "Mistakes are just steps in the debugging dance 💃",
+    "Your keyboard is your magic wand, type wisely ✨"
   ],
   "morning": [
     "🌞 Good morning, dev! Ready to ship some clean code?",
@@ -145,7 +175,10 @@
     "Time to code like nobody’s watching 👀",
     "Coffee ☕ first, stack traces second 🐛",
     "Early morning commits feel like magic ✨",
-    "New day, new errors, new victories 🏆"
+    "New day, new errors, new victories 🏆",
+    "☀️ Rise and code! Every morning is a fresh deploy.",
+    "Good morning! Today’s stack traces are tomorrow’s victories 🏆",
+    "Morning coffee ☕, morning commits 💻, morning vibes 🌅"
   ],
   "night": [
     "🌙 Night owl coding? Don’t forget to rest soon 🛌",
@@ -159,7 +192,10 @@
     "Even superheroes need sleep… so do developers 🦸‍♂️",
     "Dream in code, not in errors 🌙",
     "Oops! That bug didn’t see it coming… night vibes 🌌",
-    "Late-night refactor? Go for it ⚡"
+    "Late-night refactor? Go for it ⚡",
+    "🌙 Nighttime coder? Remember, even semicolons need rest 😉",
+    "Push code, then push yourself to bed 🛏️",
+    "Moonlight debugging: perfect for quiet heroes 🌌"
   ],
   "weekend": [
     "🎉 Happy weekend! Time to vibe and not worry about bugs 😅",
@@ -173,7 +209,30 @@
     "Push yourself to relax, not just to git push ✨",
     "May your weekend be as smooth as your favorite terminal theme 🌈",
     "Weekend plan: laughter, coffee, zero stack traces ☕😂",
-    "Step away from the keyboard… your brain will thank you 😎"
+    "Step away from the keyboard… your brain will thank you 😎",
+    "Weekend coding? Only if the bugs are fun 🐞🎉",
+    "Step away from the terminal… snacks and naps await 🍪💤",
+    "Hack less, chill more — your code will forgive you 😎",
+    "🎉 Weekend mode: relax, code optional, coffee mandatory ☕",
+    "Your keyboard called… it’s taking a break this weekend 🛌",
+    "No commits today! Only snacks and chill 🍕😎",
+   "Push yourself to nap, not just git push 💤",
+   "Weekend hackathon? Only if it’s fun and not mandatory 🎮",
+   "Step away from the terminal… your brain will thank you 🧠",
+   "Catch up on sleep, coffee, and memes ☕😂",
+   "Plan: laugh, snack, and avoid merge conflicts 🥳",
+   "May your weekend be bug-free and your coffee strong 💪☕",
+   "Stack traces can wait… your weekend can’t 🏖️",
+   "Weekend coding tip: optional, fun, and full of surprises 🎁",
+   "Push code? Only if it’s towards fun projects 🛠️",
+   "Debug later, relax now 🌞",
+   "Turn off the terminal and tune into life 🎶",
+   "Weekend vibe: chill first, code maybe later 😎",
+   "Remember: weekends are for joy, not just logs and commits ✨",
+   "May your weekend be as smooth as your favorite terminal theme 🌈",
+   "Recharge this weekend to tackle Monday like a champ ⚡",
+   "Take a break… even code needs a timeout 🛑",
+   "Weekend checklist: ☕ Coffee ✅ Nap 💤 Fun 😄 Repeat 🔁"
   ],
   "errors": [
     "Oops! That wasn’t supposed to happen… or was it? 🤔",
@@ -192,6 +251,23 @@
     "Oops… your code just tried to vibe too hard 😎",
     "Crash? It’s just dramatic flair 💥",
     "Infinite loop? Perfect time for a snack break 🍕",
-    "Segfault? Chill, it’s temporary 💫"
+    "Segfault? Chill, it’s temporary 💫",
+    "Red alert! Your code just threw a tantrum 💥",
+    "Syntax error? Your code’s trying to be artsy 🎨",
+    "Oops! That didn’t work… but hey, at least you tried 😅",
+    "Segfault detected! It’s not you, it’s the universe 🌌",
+    "Unhandled exception? Looks like your code needs therapy 🛋️",
+    "Runtime error! Your program is feeling dramatic today 🎭",
+    "Oops… infinite loop detected. Time for a coffee break ☕🔁",
+    "Minor bug? Consider it a surprise party for your terminal 🎉",
+    "Error: The computer says no. Try turning it off and on again 😎",
+    "Oops, your code went on vacation 🌴 — catch it later!",
+    "Exception thrown! Don’t worry, it’s just showing off 💪",
+    "Crash detected. Time to blame the compiler… or your cat 🐱",
+    "Unexpected behavior? Congratulations, your code has personality 😏",
+    "Runtime warning: Code is moody today 😤",
+    "Oops! Something exploded… metaphorically 💥",
+    "Debug me if you can… the game is on 🎮",
+    "Error: You found the hidden chaos! 🎩✨"
   ]
 }
