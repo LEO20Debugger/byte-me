@@ -5,14 +5,9 @@ import figlet from "figlet";
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { join } from "path";
 import { cwd } from "process";
-import { fileURLToPath } from "url";
+import messages from "../json/messages.json";
 
-// --- ESM __dirname equivalent ---
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = join(__filename, "..");
-
-// --- Paths ---
-const messagesPath = join(__dirname, "../json/messages.json");
+// --- Paths for user configs/state ---
 const configPath = join(cwd(), ".byteme.json");
 const statePath = join(cwd(), ".byteme-state.json");
 
@@ -22,17 +17,6 @@ const defaults = {
   showBanner: true,
   dailyTip: false,
 };
-
-// --- Load messages ---
-let messages = {};
-try {
-  messages = JSON.parse(readFileSync(messagesPath, "utf-8"));
-} catch (err) {
-  console.warn(
-    "⚠️ Failed to load messages.json, using empty messages.",
-    err.message
-  );
-}
 
 // --- Colors for plain mode ---
 const colors = ["yellow", "blue", "magenta", "cyan", "whiteBright"];
