@@ -69,7 +69,7 @@ ShowBanner: If true, an ASCII-art banner is displayed on start; if false, it is 
 DailyTip: If true, shows a random motivational tip once per day.
 
 
-Support / Contact 📧
+Contact 📧
 
 Need help or want to share feedback? Reach out!
 
@@ -79,5 +79,5 @@ Twitter: @Brainergybyleo
 
 GitHub: Leo20debugger
 
-Feel free to open an issue or PR on GitHub! 🛠️
+Feel free to open an issue or PR on GitHub!! 🛠️
 ```
