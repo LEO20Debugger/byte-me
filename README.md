@@ -71,7 +71,7 @@ DailyTip: If true, shows a random motivational tip once per day.
 
 Contact 📧
 
-Need help or want to share feedback? Reach out!
+Need help or want to share feedback? Reach out
 
 Email: leonard6oba@gmail.com
 
