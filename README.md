@@ -79,5 +79,5 @@ Twitter: @Brainergybyleo
 
 GitHub: Leo20debugger
 
-Feel free to open an issue or PR on GitHub 🛠️
+Feel free to open an issue or PR on GitHub ! 🛠️
 ```
