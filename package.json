@@ -18,7 +18,8 @@
   "scripts": {
     "build": "rollup -c",
     "postinstall": "node dist/postinstall.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "keywords": [
     "cli",
@@ -32,6 +33,14 @@
   "author": "Leonard Oba <leonard6oba@gmail.com>",
   "license": "MIT",
   "description": "A fun CLI that surprises developers with random geeky messages, coding jokes, and motivational messages in the terminal!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LEO20Debugger/byte-me.git"
+  },
+  "homepage": "https://github.com/LEO20Debugger/byte-me#readme",
+  "bugs": {
+    "url": "https://github.com/LEO20Debugger/byte-me/issues"
+  },
   "dependencies": {
     "boxen": "^8.0.1",
     "chalk": "^5.6.0",
@@ -48,6 +57,7 @@
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-json": "^6.1.0",
     "rollup": "^4.48.0",
-    "rollup-plugin-copy": "^3.5.0"
+    "rollup-plugin-copy": "^3.5.0",
+    "vitest": "^3.2.6"
   }
 }

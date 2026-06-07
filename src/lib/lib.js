@@ -1,5 +1,6 @@
 import cron from "node-cron";
 import chalk from "chalk";
+import notifier from "node-notifier";
 import { rainbow, pastel } from "gradient-string";
 import figlet from "figlet";
 import { readFileSync, writeFileSync, existsSync } from "fs";
@@ -118,6 +119,7 @@ export function scheduleFun({
   cronTime = "0 */30 * * * *",
   rainbow: forceRainbow = false,
   once = false,
+  notify = false,
 } = {}) {
   if (typeof cronTime !== "string")
     throw new TypeError("cronTime must be a string");
@@ -149,6 +151,14 @@ export function scheduleFun({
     }
 
     console.log(chalk.green.bold("[byte-me]"), output);
+
+    if (notify) {
+      try {
+        notifier.notify({ title: "byte-me 🚀", message: msg });
+      } catch (err) {
+        console.error("⚠️ Notification failed:", err.message);
+      }
+    }
 
     if (once) process.exit(0);
   };
