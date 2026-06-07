@@ -1,18 +1,22 @@
 # byte-me 🚀
 
-**byte-me** is a fun and interactive CLI for developers that delivers **random geeky messages**, coding jokes, and motivational quotes directly in your terminal. 😎  
+[![CI](https://github.com/LEO20Debugger/byte-me/actions/workflows/ci.yml/badge.svg)](https://github.com/LEO20Debugger/byte-me/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/@brainergybyleo/byte-me.svg)](https://www.npmjs.com/package/@brainergybyleo/byte-me)
+[![npm downloads](https://img.shields.io/npm/dm/@brainergybyleo/byte-me.svg)](https://www.npmjs.com/package/@brainergybyleo/byte-me)
+[![license](https://img.shields.io/npm/l/@brainergybyleo/byte-me.svg)](./LICENSE)
+
+**byte-me** is a fun, interactive CLI for developers that delivers **random geeky messages**, coding jokes, and motivational quotes directly in your terminal. 😎
 It also provides **playful error hints** for uncaught exceptions, unhandled rejections, and runtime warnings — perfect for keeping your terminal lively while coding. 💻✨
 
 ---
 
 ## Features ✨
 
-- 🎯 Receive **random coding messages, jokes, and inspiration**.
-- 🛠️ Playful **error hints** for uncaught exceptions, unhandled rejections, and warnings.
-- 🌈 Messages are **bold and colorized** in the terminal.
-- 🌟 Supports **rainbow mode** for colorful animated messages.
-- ⏱️ Schedule messages with a **cron-like syntax**.
-- ⚡ Fully compatible with **Node.js projects**, including CLI and backend development.
+- 🎯 Random coding messages, jokes, and inspiration.
+- 🛠️ Playful error hints for uncaught exceptions, unhandled rejections, and warnings.
+- 🌈 Bold, colorized output with an optional rainbow animation mode.
+- ⏱️ Schedule messages with a cron-like syntax.
+- ⚡ Works in any Node.js project, from CLI tools to backend services.
 
 ---
 
@@ -22,62 +26,80 @@ Install globally via npm:
 
 ```bash
 npm install -g @brainergybyleo/byte-me
+```
 
-# Show a fun message instantly
+---
+
+## Usage 💻
+
+```bash
+# Start the scheduler (a message every 30 minutes)
 byte-me
 
-# Run in test mode (e.g., every 5 seconds)
-byte-me --test
+# Show one message and exit
+byte-me --once        # -o
 
 # Enable rainbow animated messages
-byte-me --rainbow
+byte-me --rainbow     # -r
 
-# Show one message and exit
-byte-me --once
+# Run in test mode (a message every 5 seconds)
+byte-me --test        # -t
+
+# Show desktop/system notifications
+byte-me --notify      # -n
+
+# Show the banner plus an instant message
+byte-me start
+```
+
+---
+
+## Hidden Games 🎮
+
+byte-me ships with a few interactive terminal games — run any of them by name:
+
+```bash
+byte-me dungeon       # 🏰 Explore an ASCII dungeon adventure
+byte-me hack          # 🕹️  Launch a "secret hack" mini-game
+byte-me adventure     # 🌲 Play a 10-level ASCII adventure
+byte-me rps           # ✊ Play Rock-Paper-Scissors against the terminal
+```
+
+> Running locally from the repo (without a global install)? Use
+> `node dist/bin/cli.js <command>`, e.g. `node dist/bin/cli.js dungeon`.
+
+---
 
 ## Configuration ⚙️
 
-Settings are customizable via a JSON file (.byteme.json) in your project directory.
+Settings are customizable via a `.byteme.json` file in your project directory:
 
-You can adjust:
-
-theme: "plain", "rainbow", or "pastel"
-
-showBanner: true or false
-
-dailyTip: true or false
-
-Example .byteme.json:
-
+```json
 {
   "theme": "rainbow",
   "showBanner": true,
   "dailyTip": false
 }
-
-
-## Behavior Notes:
-
-Theme:
-
-"rainbow" or "pastel" shows colorful animated messages.
-
-"plain" cycles through preset colors randomly (e.g., blue, red, cyan).
-
-ShowBanner: If true, an ASCII-art banner is displayed on start; if false, it is hidden.
-
-DailyTip: If true, shows a random motivational tip once per day.
-
-
-Support / Contact 📧
-
-Need help or want to share feedback? Reach out!
-
-Email: leonard6oba@gmail.com
-
-Twitter: @Brainergybyleo
-
-GitHub: Leo20debugger
-
-Feel free to open an issue or PR on GitHub! 🛠️
 ```
+
+| Option       | Values                        | Description                                                                 |
+| ------------ | ----------------------------- | --------------------------------------------------------------------------- |
+| `theme`      | `"plain"`, `"rainbow"`, `"pastel"` | `rainbow`/`pastel` show colorful animated messages; `plain` cycles preset colors. |
+| `showBanner` | `true` / `false`              | Display an ASCII-art banner on start.                                       |
+| `dailyTip`   | `true` / `false`              | Show a random motivational tip once per day.                                |
+
+---
+
+## Support / Contact 📧
+
+Need help or want to share feedback? Open an [issue](https://github.com/LEO20Debugger/byte-me/issues) or PR on GitHub. 🛠️
+
+- **Email:** leonard6oba@gmail.com
+- **Twitter:** [@Brainergybyleo](https://twitter.com/Brainergybyleo)
+- **GitHub:** [LEO20Debugger](https://github.com/LEO20Debugger)
+
+---
+
+## License
+
+[MIT](./LICENSE) © Leonard Oba
