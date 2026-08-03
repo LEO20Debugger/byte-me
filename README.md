@@ -102,4 +102,4 @@ Need help or want to share feedback? Open an [issue](https://github.com/LEO20Deb
 
 ## License
 
-[MIT](./LICENSE) ©  Leonard Oba
+[MIT](./LICENSE) © Leonard Oba
