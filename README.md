@@ -92,7 +92,7 @@ Settings are customizable via a `.byteme.json` file in your project directory:
 
 ## Support / Contact 📧
 
-Need help or want to share feedback? Open an [issue](https://github.com/LEO20Debugger/byte-me/issues) or PR on GitHub...
+Need help or want to share feedback? Open an [issue](https://github.com/LEO20Debugger/byte-me/issues) or PR on GitHub.
 - **Email:** leonard6oba@gmail.com
 - **Twitter:** [@Brainergybyleo](https://twitter.com/Brainergybyleo)
 - **GitHub:** [LEO20Debugger](https://github.com/LEO20Debugger)
