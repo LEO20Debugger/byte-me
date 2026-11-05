@@ -62,7 +62,7 @@ byte-me ships with a few interactive terminal games — run any of them by name:
 byte-me dungeon       # 🏰 Explore an ASCII dungeon adventure
 byte-me hack          # 🕹️  Launch a "secret hack" mini-game
 byte-me adventure     # 🌲 Play a 10-level ASCII adventure
-byte-me rps           # ✊ Play Rock-Paper-Scissors against the terminal
+byte-me rps           # ✊ Play Rock-Paper-Scissors against the .
 ```
 
 > Running locally from the repo (without a global install)? Use
