@@ -12,7 +12,7 @@ It also provides **playful error hints** for uncaught exceptions, unhandled reje
 
 ## Features ✨
 
-- 🎯 Random coding messages, jokes, and inspiration.
+- 🎯 Random coding messages, jokes, and inspiration
 - 🛠️ Playful error hints for uncaught exceptions, unhandled rejections, and warnings.
 - 🌈 Bold, colorized output with an optional rainbow animation mode.
 - ⏱️ Schedule messages with a cron-like syntax.
